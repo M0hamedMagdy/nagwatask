@@ -15,9 +15,9 @@ app.get("/", (request, response) => {
 });
 
 // words endpoint:
-app.get("/api/words/:amount", (request, response) => {
-  const amount = Number(request.params.amount);
-  let words = randomListWorker.getRandomList(amount);
+app.get("/api/words/:len", (request, response) => {
+  const len = Number(request.params.len);
+  let words = randomListWorker.getRandomList(len);
   response.json(words);
 });
 
@@ -28,13 +28,6 @@ app.get("/api/scores/:score", (request, response, next) => {
   let rank = rankWorker.calcRank(userScore);
   response.json({ rank: rank });
 });
-
-// app.get("/api/scores/:score", (request, response) => {
-//   const userScore = request.params.score;
-//   const score = scoreList.filter((score) => score < userScore);
-//   const rank = Math.round((score.length / scoreList.length) * 100); // Round to 00.00 dighits
-//   response.json(rank);
-// });
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

@@ -37,3 +37,6 @@ module.exports.getAdverb = function getAdverb() {
 module.exports.getScores = function getScores() {
   return scoreList;
 };
+module.exports.getWords = function getWords() {
+  return wordList;
+};

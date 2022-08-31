@@ -1,16 +1,17 @@
 let DBManager = require("../models/model");
+const wordList = DBManager.getWords();
 const nounList = DBManager.getNoun();
 const verbList = DBManager.getVerb();
 const adjectiveList = DBManager.getAdjective();
 const adverbList = DBManager.getAdverb();
 
-let result = [];
+let words = [];
 let counter = 0;
 
 module.exports.getRandomList = function getRandomList(len = 10) {
-  // Assuming the data list equal 15
-  len = len > 15 ? 15 : len;
-  while (result.length < len) {
+  // Checking if the requested array is equal to data len.
+  len = len > wordList.length ? wordList.length : len;
+  while (words.length < len) {
     let mod = counter % 4;
     switch (mod) {
       case 0:
@@ -28,13 +29,13 @@ module.exports.getRandomList = function getRandomList(len = 10) {
     }
     counter++;
   }
-  return result;
+  return words;
 };
 
 function getNewNoun() {
   if (nounList.length) {
     let i = Math.floor(Math.random() * nounList.length);
-    result.push(nounList[i]);
+    words.push(nounList[i]);
     nounList.splice(i, 1);
   }
   return;
@@ -43,7 +44,7 @@ function getNewNoun() {
 function getNewVerb() {
   if (verbList.length) {
     let i = Math.floor(Math.random() * verbList.length);
-    result.push(verbList[i]);
+    words.push(verbList[i]);
     verbList.splice(i, 1);
   }
   return;
@@ -52,7 +53,7 @@ function getNewVerb() {
 function getNewAdjective() {
   if (adjectiveList.length) {
     let i = Math.floor(Math.random() * adjectiveList.length);
-    result.push(adjectiveList[i]);
+    words.push(adjectiveList[i]);
     adjectiveList.splice(i, 1);
   }
   return;
@@ -61,7 +62,7 @@ function getNewAdjective() {
 function getNewAdverb() {
   if (adverbList.length) {
     let i = Math.floor(Math.random() * adverbList.length);
-    result.push(adverbList[i]);
+    words.push(adverbList[i]);
     adverbList.splice(i, 1);
   }
   return;

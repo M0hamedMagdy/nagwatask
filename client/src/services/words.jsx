@@ -10,6 +10,10 @@ async function getAll() {
   }
   
 
+
+
+
+
   
 const wordsService = { getAll };
 export default wordsService;
