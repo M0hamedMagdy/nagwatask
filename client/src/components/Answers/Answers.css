@@ -1,0 +1,27 @@
+button.option {
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  padding-block-start: 0.9rem;
+  padding-block-end: 0.9rem;
+  background-color: white;
+
+  outline: none;
+  border: none;
+  border-radius: 5px;
+
+  color: black;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+button.correct {
+  background-color: green;
+}
+button.wrong {
+  background-color: red;
+}
+
+button.option:hover {
+  border: 1px solid black;
+}

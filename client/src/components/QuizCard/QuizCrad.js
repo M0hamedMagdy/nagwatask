@@ -1,23 +1,29 @@
-import { useState } from "react";
+// Styles
+import "./QuizCard.css";
+// Components
 import Answers from "../Answers/Answers";
 
-function QuizCard({ words }) {
-  const answers = ["verb", "noun", "adverb", "adjective", "skip"];
-  const [currectQ, setCurrentQ] = useState(0);
-
-  // Answering Function
-  function handAnswer(e) {
-    setCurrentQ((prev) => prev + 1);
-  }
+function QuizCard({ words, currectQ, handAnswer }) {
+  const options = ["verb", "noun", "adverb", "adjective", "skip"];
   return (
-    <section>
-      <h1>Can You Guess the Word's Part Of Speech</h1>
-      <span>{words && words[currectQ].word}</span>
+    <section className="quizCard">
+      <h1 className="question">Can You Guess the Word's Part Of Speech?</h1>
+      <span className="word">{words && words[currectQ].word}</span>
 
-      {answers &&
-        answers.map((answer) => (
-          <Answers value={answer} onClickHandler={handAnswer} />
-        ))}
+      <div className="options">
+        {options &&
+          options.map((answer) => (
+            <Answers key={answer} value={answer} onClickHandler={handAnswer} />
+          ))}
+      </div>
+
+      {/* Progress bar for the current Qeustion */}
+      <progress value={currectQ + 1} max="10">
+        {currectQ * 10} %
+      </progress>
+      <span className="question-number">
+        {currectQ + 1} / {words && words.length}
+      </span>
     </section>
   );
 }

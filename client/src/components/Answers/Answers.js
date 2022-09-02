@@ -1,6 +1,9 @@
+// Styles
+import "./Answers.css";
+
 function Answers({ value, onClickHandler, currectQ }) {
   return (
-    <button value={value} onClick={onClickHandler}>
+    <button className="option" value={value} onClick={onClickHandler}>
       {value}
     </button>
   );

@@ -25,7 +25,7 @@ app.get("/api/words/:len", (request, response) => {
 
 // rank endpoint:
 
-app.get("/api/scores/:score", (request, response, next) => {
+app.post("/api/scores/:score", (request, response, next) => {
   const userScore = request.params.score;
   let rank = rankWorker.calcRank(userScore);
   response.json({ rank: rank });
