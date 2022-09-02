@@ -7,7 +7,7 @@ function QuizCard({ words, currectQ, handAnswer }) {
   const options = ["verb", "noun", "adverb", "adjective", "skip"];
   return (
     <section className="quizCard">
-      <h1 className="question">Can You Guess the Word's Part Of Speech?</h1>
+      <h1 className="question">Can you guess the word's Part Of Speech?</h1>
       <span className="word">{words && words[currectQ].word}</span>
 
       <div className="options">

@@ -16,12 +16,33 @@ button.option {
 }
 
 button.correct {
-  background-color: green;
+  animation-duration: 0.5s;
+  animation-name: correct;
 }
 button.wrong {
-  background-color: red;
+  animation-duration: 0.5s;
+  animation-name: wrong;
 }
 
 button.option:hover {
   border: 1px solid black;
+}
+
+@keyframes correct {
+  from {
+    background-color: green;
+  }
+
+  to {
+    background-color: white;
+  }
+}
+@keyframes wrong {
+  from {
+    background-color: red;
+  }
+
+  to {
+    background-color: white;
+  }
 }

@@ -21,6 +21,8 @@ function App() {
   const [isSubmited, setIsSubmited] = useState(false);
   // Creating State for Submission
   const [rank, setRank] = useState(0);
+  // Creating State for Sarting Over
+  const [tryAgain, setTryAgain] = useState(0);
 
   // Answering Function
   function handAnswer(e) {
@@ -30,8 +32,10 @@ function App() {
     if (selectedAnswer === corectAnswer) {
       setScore((prev) => prev + 10);
       e.target.classList.add("correct");
+      setTimeout(() => e.target.classList.remove("correct"), 500);
     } else {
       e.target.classList.add("wrong");
+      setTimeout(() => e.target.classList.remove("wrong"), 500);
     }
 
     // Controling the State of the Current Qustion
@@ -48,10 +52,10 @@ function App() {
     const words = await wordsService.getAll(len);
     setWords(words);
   };
-
+  // Fetch again when the user try again
   useEffect(() => {
     getWords(10);
-  }, []);
+  }, [tryAgain]);
 
   // Sending the score to the server to get the rank
   const getRank = async (score) => {
@@ -63,10 +67,18 @@ function App() {
     getRank(score);
   }, [score]);
 
+  // Reset EveryThing
+  function startAgain() {
+    setCurrentQ(0);
+    setScore(0);
+    setIsSubmited(false);
+    setRank(0);
+    setTryAgain((prev) => prev + 1);
+  }
   return (
     <>
       {isSubmited ? (
-        <Score score={score} rank={rank} />
+        <Score clickHandler={startAgain} rank={rank} />
       ) : (
         <QuizCard words={words} currectQ={currectQ} handAnswer={handAnswer} />
       )}
