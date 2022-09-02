@@ -18,6 +18,8 @@ app.get("/", (request, response) => {
 app.get("/api/words/:len", (request, response) => {
   const len = Number(request.params.len);
   let words = randomListWorker.getRandomList(len);
+  // shuffle the array so that the result will not always be (adverb , verb, noun, adjective)
+  words = words.sort((a, b) => 0.5 - Math.random());
   response.json(words);
 });
 
