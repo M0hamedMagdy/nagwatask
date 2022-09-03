@@ -1,32 +1,32 @@
-# Nagwa-Task
+# Nagwa Task for Javascript Developer. 
 
-## description
+## Description
 
 The Task is about making an activity that uses React.js, node.js, and Express.js to help students practice words according to their part of speech.
 
 ## Runing The App
 
-1- git clone
+1. git clone
 
-after clone open directory in terminal
+2. cd server
 
-2- cd server
+3. npm install
 
-3- npm install
+4. npm run dev
 
-4- npm run dev
+will run the server on port :3001 with the app production build
 
-will run the server on port 3001 with the app production build
+## Technologies 
 
-## Technologies Used
+### Backend
 
-### Backend-technologies
-
-NodeJs
-ExpressJs
-
+- NodeJs
+- ExpressJs
+- Cors
+- dotenv
+- nodemon
 
 ### Frontend
 
-ReactJs
-Axios
+- ReactJs
+- Axios
