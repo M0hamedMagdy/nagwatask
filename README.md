@@ -16,6 +16,9 @@ The Task is about making an activity that uses React.js, node.js, and Express.js
 
 will run the server on port :3001 with the app production build
 
+## Links
+- [Live App : nagwatask-quiz.herokuapp.com](nagwatask-quiz.herokuapp.com/) 
+
 ## Technologies 
 
 ### Backend
@@ -30,3 +33,7 @@ will run the server on port :3001 with the app production build
 
 - ReactJs
 - Axios
+
+### Deploy
+
+- Heroku
