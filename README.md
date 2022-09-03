@@ -11,8 +11,8 @@ The Task is about making an activity that uses React.js, node.js, and Express.js
 after clone open directory in terminal
 
 2- cd server
-
-3-npm run dev
+3- npm install
+4- npm run dev
 
 will run the server on port 3001 with the app production build
 
